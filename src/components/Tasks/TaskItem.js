@@ -2,7 +2,8 @@ import './Tasks.css'
 import PropTypes from 'prop-types';
 import Badge from '../Badge';
 import { useDispatch } from 'react-redux';
-import { completeTaskAction } from '../../redux/actions';
+// import { completeTaskAction } from '../../redux/actions';
+import tasksSlice from './TasksSlice';
 
 function TaskItem({ content, type , completed, id}) {
     const dispatch = useDispatch()
@@ -17,7 +18,7 @@ function TaskItem({ content, type , completed, id}) {
             check : event.target.checked
         }
 
-        dispatch(completeTaskAction(payload))
+        dispatch(tasksSlice.actions.complete(payload))
 
     }
 

@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import './Filter.css'
 import { useDispatch } from 'react-redux';
-import { searchFilterChange, typeFilterChange } from '../../redux/actions';
+// import { searchFilterChange, typeFilterChange } from '../../redux/actions';
+import FiltersSlice from '../Filter/FiltersSlice'
 
 function Filter() {
     const [searchInput, setSearchInput] = useState("")
     const [statusInput, setStatusInput] = useState("All")
-    const [typeInput , setTypeInput] = useState(" ")
+    // const [typeInput , setTypeInput] = useState(" ")
     const dispatch = useDispatch()
 
     const handleChangeSearch = (e) => {
@@ -14,7 +15,7 @@ function Filter() {
         if(!text.startsWith(' '))
         {
             setSearchInput(text)
-            dispatch(searchFilterChange(text))
+            dispatch(FiltersSlice.actions.searchFilterChange(text))
         }
     }
 
@@ -22,18 +23,18 @@ function Filter() {
         if(event.target.checked)
         {
             setStatusInput(event.target.value)
-            dispatch(typeFilterChange(event.target.value))
+            dispatch(FiltersSlice.actions.statusFilterChange(event.target.value))
         }
     }
 
-    const handleChangeType = (event) => {
-        const text = event.target.value
-        if(!text.startsWith(' '))
-        {
-            setTypeInput(text)
-            // dispatch(searchFilterChange(e.target.value))
-        }
-    }
+    // const handleChangeType = (event) => {
+    //     const text = event.target.value
+    //     if(!text.startsWith(' '))
+    //     {
+    //         setTypeInput(text)
+    //         // dispatch(searchFilterChange(e.target.value))
+    //     }
+    // }
 
     return ( 
         <div className='filter'>
@@ -57,7 +58,7 @@ function Filter() {
             <div className='filter__group'>
                 <span className='filter__label'>Filter By Priority</span>
                 <div className='filter__input'>
-                    <input className='priority' placeholder='Please select' type='text' spellCheck="false" value={typeInput} onChange={handleChangeType}/>            
+                    <input className='priority' placeholder='Please select' type='text' spellCheck="false" />            
                 </div>
             </div>
         </div>

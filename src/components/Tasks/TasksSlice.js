@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid'
+import { createSlice } from '@reduxjs/toolkit'
 
 const initState = [
         {
@@ -21,22 +22,38 @@ const initState = [
         }
  ]
 
-const tasksReducer = (state = initState, action) => {
-    switch(action.type)
-    {
-        case 'tasks/add' :
-            return [...state, action.payload]            
+// const tasksReducer = (state = initState, action) => {
+//     switch(action.type)
+//     {
+//         case 'tasks/add' :
+//             return [...state, action.payload]            
 
-        case 'tasks/complete' :
-            return state.map((task) => {
-                    if(task.id === action.payload.id)
-                        task.completed = action.payload.check
-                    return task
-                })
+//         case 'tasks/complete' :
+//             return state.map((task) => {
+//                     if(task.id === action.payload.id)
+//                         task.completed = action.payload.check
+//                     return task
+//                 })
         
-        default : return state
+//         default : return state
+//     }
+// }
+const tasksSlice = createSlice({
+    name : "tasks",
+    initialState : initState,
+    reducers : {
+        add (state, action) {
+            state.push(action.payload)
+        },
+        complete (state, action)
+        {
+            state.forEach(task => {
+                if(task.id === action.payload.id)
+                    task.completed = action.payload.check
+            } )
+        }
     }
-}
+})
 
-export default tasksReducer
+export default tasksSlice
  

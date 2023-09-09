@@ -3,6 +3,7 @@ import { useState, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodoAction } from '../../redux/actions';
 import { v4 as uuidv4 } from 'uuid'
+import tasksSice from '../Tasks/TasksSlice'
 
 function AddTask() {
     const taskTypes = ['Medium', 'High', 'Low']
@@ -22,7 +23,7 @@ function AddTask() {
             type : inputType, 
             completed : false
         }
-        dispatch(addTodoAction(data))
+        dispatch(tasksSice.actions.add(data))
         setInputTask("")
         setInputType(taskTypes[0])
         ref.current.focus()
