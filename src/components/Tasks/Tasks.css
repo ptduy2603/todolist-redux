@@ -1,0 +1,21 @@
+.task-list {
+    margin-top: 30px;
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.task-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task__content {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+/* 
+.task__content:has(.task__check:checked) {
+    text-decoration: line-through;
+    color: #ccc;
+} */

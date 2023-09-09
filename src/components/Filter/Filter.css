@@ -1,0 +1,54 @@
+.filter {
+    margin-top: 20px;
+    font-size: 1.8rem;
+}
+
+.filter__group {
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.filter__label {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.4;
+    user-select: none;
+    display: inline-block;
+    margin-bottom: 6px;
+}
+
+/* filter input CSS */
+.filter__input:has(input[type="text"])
+{
+    display: flex;
+}
+
+input[type="text"] {
+    flex: 1;
+    font-size: 1.4rem;
+    padding: 4px;
+    outline: none;
+    caret-color: var(--primary-color);
+}
+
+input[type="radio"]
+{
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+input[type="radio"] + input[type="radio"] {
+    margin-left: 10px;
+}
+
+input::placeholder {
+    font-size: 1.4rem;
+    opacity: 0.4;
+}
+
+.text-btn {
+    padding: 6px;
+    font-size: 1.4rem;
+    cursor: pointer;
+    height: 100%;
+}

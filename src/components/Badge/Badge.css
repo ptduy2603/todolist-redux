@@ -1,0 +1,27 @@
+.badge {
+    font-size: 1.2rem;
+    padding: 4px;
+    border: 1px solid currentColor;
+    text-transform: capitalize;
+    display: inline-block;
+}
+
+.badge.medium {
+    color: rgb(51, 158, 225);
+    background-color: aliceblue;
+}
+
+.badge.high {
+    color: red;
+    background-color: lightpink;
+}
+
+.badge.low {
+    color: var(--white-color);
+    background-color: grey;
+}
+
+.badge.disable {
+    text-decoration: line-through;
+    opacity: 0.5;
+}

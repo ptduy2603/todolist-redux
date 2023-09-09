@@ -1,0 +1,21 @@
+.addtask-section {
+    margin-top: 50px;
+    display: flex;
+}
+
+.btn-addtask {
+    width: 60px;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    cursor: pointer;
+    background: blue;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.btn-addtask:active {
+    transform: scale(0.9);
+    transition: all ease-out 0.2s;
+}
